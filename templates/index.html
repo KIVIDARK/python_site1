@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="ru">
+	<head>
+		<!--<script src="res/jquery-2.1.4.js"></script>-->
+		<link rel="stylesheet" href="{% static 'styles/normalize_style.css' %}">
+		<link rel="stylesheet" href="{% static 'styles/style.css' %}">
+		<meta charset="utf-8">
+		<title>Сайт</title>
+	</head>
+	<body>
+		<header class="container header">
+			<h1>{{ main_title }}</h1>
+			<nav class="navigation">
+				<ul>
+					<li><a href="index.html">Главная</a></li>
+					<li><a href="index.html">Информация</a></li>
+				</ul>
+				<!--<a href="index.html" class="btn btn-alt">Главная</a>
+				<a href="about.html" class="btn btn-alt">О сайте</a>-->
+			</nav>
+		</header>
+		<div class="group">
+			<section class="list">
+				<ul>{% for i in spis %}
+					<li><a href="{% url 'spis' book i %}">{{ forloop.counter }}. {{ i }}</a></li>
+                    {% endfor %}</ul>
+			</section>
+			<aside class="main">
+                <h2>{{ text_title }}
+                </h2>
+				<section class="text">
+					<section>
+                        {% for i  in first_text %}
+						<p>{{ i }}</p>
+                        {% endfor %}
+					</section>
+                    {% for i in second_text %}
+					<p>{{ i }}</p>
+                    {% endfor %}
+				</section>
+				<section>
+					<h2>Заголовок 2</h2>
+				</section>
+				<!-- div -->
+				<div class="social">
+					<p><strong><em>Меня</em></strong> можно найти в...</p>
+					<p>Кроме того, у меня есть профиль на... Кроме того, у меня есть профиль на... Кроме того, у меня есть профиль на... Кроме того, у меня есть профиль на...</p>
+					<!-- span -->
+					<p>Скоро мы	<a href="https://webref.ru/layout/learn-html-css/getting-to-know-html" target="_blank"><span class="tooltip">напишем HTML</span></a> лучше.</p>
+				</div>
+			</aside>
+		</div>
+		<footer class="footer container">
+			<nav>
+				<a href="index.html">Главная</a>
+				<a href="about.html">О сайте</a>
+			</nav>
+			<small>&copy; Dark Site</small>
+		</footer>
+	</body>
+</html>
